@@ -1,4 +1,5 @@
 <template lang="pug">
+
   // Estoy ocupando 'pug' no se espanten, pueden ocupar el html de toda la vida ;)
   .tw-min-h-screen.tw-flex.tw-flex-col.bg-dark
     .tw-p-5
