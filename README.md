@@ -1,22 +1,36 @@
-# Quasar App (fitnetico)
+<p align="center">
+<img src="./src/assets/logo.svg" width="400">
+</p>
 
-A Quasar Framework app
+Proyecto realizado para la clase de sistemas expertos, 
+del octavo semestre, de la carrera de ingenieria en 
+computación; impartido en la Universidad Autonoma Del 
+Estado de México Campus Valle de México.
 
-## Install the dependencies
+## Requisitos
+- Node js >= 12.16
+- Yarn >= 1.22
+
+## Instalar el proyecto
+Entrar a la carpeta del proyecto y con el cmd ejecutar el siguiente comando:
 ```bash
 yarn
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Iniciar el proyecto en modo de desarrollo.
 ```bash
 quasar dev
 ```
 
 
-### Build the app for production
+### Compilar la aplicación
 ```bash
 quasar build
 ```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+## Desarrolladores
+
+- Jimenez Zempoalteca Uriel
+- Rios Díaz de León Jose Pablo
+- Sánchez Cortés Aarón
+- Trevilla Figueroa Christopher
