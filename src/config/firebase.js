@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore"
 import "firebase/auth"
+import fi from "quasar/lang/fi";
 
 const config = {
   apiKey: "AIzaSyDjwq-C4a8CYgaL4gz47FgP8O_t1mhu1yg",

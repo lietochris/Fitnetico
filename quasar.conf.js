@@ -12,8 +12,8 @@ module.exports = function (/* ctx */) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
     boot: [
-
       'axios',
+      'checkAuth'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -60,7 +60,7 @@ module.exports = function (/* ctx */) {
     supportIE: false,
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ts
-    supportTS: false,
+    supportTS: true,
 
     // https://quasar.dev/quasar-cli/cli-documentation/prefetch-feature
     // preFetch: true
