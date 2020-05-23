@@ -7,8 +7,6 @@
     .tw-flex-1.tw.flex.tw-flex-col.tw-justify-center.tw-items-center
       q-img(class="tw-w-1/2 lg:tw-w-1/6" src="http://classic.battle.net/war3/images/human/units/portraits/peasant.gif")
       h1(class="tw-font-semibold text-primary tw-text-3xl lg:tw-text-6xl") ¡A trabajar!
-      q-btn(label="login" color='green' @click="test")
-      q-btn(label="logout" color='red' @click="exit")
     .tw-p-1.bg-primary.tw-flex.tw-justify-center.text-secondary Puto el que lo lea 2020
 
 </template>
@@ -18,24 +16,6 @@
         name: 'PageIndex',
         data() {
             return {}
-        },
-        methods: {
-            test() {
-                const payload = {
-                    email: 'christophertrevilla@gmail.com',
-                    password: 'Blackrider',
-                };
-                this.$store.dispatch('user/login', payload)
-                    .then(() => {
-                        console.log('exito')
-                    })
-                    .catch(() => {
-                        console.log('error')
-                    })
-            },
-            exit() {
-                this.$store.dispatch('user/logout')
-            }
         }
     }
 </script>
