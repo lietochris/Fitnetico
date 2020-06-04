@@ -1,17 +1,29 @@
 const routes = [{
-    path: '/',
-    component: () =>
-        import ('layouts/MainLayout.vue'),
-    children: [{
-        path: '',
+        path: '/',
         component: () =>
-            import ('pages/Index.vue')
-    }]
-}, {
-    path: '/inicio',
-    component: () =>
-        import ('pages/inicio.vue'),
-}]
+            import ('layouts/MainLayout.vue'),
+        children: [{
+            path: '',
+            component: () =>
+                import ('pages/Index.vue')
+        }]
+    },
+    {
+        path: '/inicio',
+        component: () =>
+            import ('pages/inicio.vue'),
+    },
+    {
+        path: '/perfil',
+        component: () =>
+            import ('pages/Perfil.vue'),
+    },
+    {
+        path: '/rutinas',
+        component: () =>
+            import ('pages/Rutinas.vue'),
+    }
+]
 
 // Always leave this as last one
 if (process.env.MODE !== 'ssr') {
@@ -21,6 +33,5 @@ if (process.env.MODE !== 'ssr') {
             import ('pages/Error404.vue')
     })
 }
-
 
 export default routes
