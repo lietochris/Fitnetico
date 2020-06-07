@@ -21,9 +21,9 @@
       <img src="https://i.ibb.co/YRJrrHr/user-1.png" class="responsive" width="160" height="160">
       </div>
       <q-separator color="white" inset />
-      <q-btn class="tw-py-4" color="grey-4" size="12px" stretch flat label="Mis rutinas"/>
+      <q-btn to="/rutinas" class="tw-py-4" color="grey-4" size="12px" stretch flat label="Mis rutinas"/>
       <p></p>
-      <q-btn class="tw-py-4" color="grey-4" size="12px" stretch flat label="Crear rutina"/>
+      <q-btn to="/rutinas/crear" class="tw-py-4" color="grey-4" size="12px" stretch flat label="Crear rutina"/>
     </div>
     </q-img>
   </div>
@@ -39,12 +39,12 @@
       <div class="tw-w-1/4 tw-h-2 bg-purple-10"></div>
     </div>
     <div class="tw-pl-24">
-      <p>  <span class="tw-text-xl text-bold  tw-break-words">Peso </span><span class="tw-text-xl tw-pl-32 tw-break-words text-purple-3">xx.xx</span>  </p>
-      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Estatura </span><span class="tw-text-xl tw-pl-24 tw-break-words text-purple-3">xx.xx</span>  </p>
-      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">IMC </span><span class="tw-pl-2"></span> <span class="tw-text-xl tw-pl-32 tw-break-words text-purple-3">xx.xx</span>  </p>
-      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Condición física</span><span class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">xx.xx</span>  </p>
-      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Objetivo actual</span><span class="tw-text-xl tw-pl-10 tw-break-words text-purple-3">xx.xx</span>  </p>
-      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Total de rutinas</span><span class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">xx.xx</span>  </p>
+      <p>  <span class="tw-text-xl text-bold  tw-break-words">Peso </span><span class="tw-text-xl tw-pl-32 tw-break-words text-purple-3"> {{user.peso}} kg </span>  </p>
+      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Estatura </span><span class="tw-text-xl tw-pl-24 tw-break-words text-purple-3"> {{user.estatura}} m </span>  </p>
+      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">IMC </span><span class="tw-pl-2"></span> <span class="tw-text-xl tw-pl-32 tw-break-words text-purple-3">{{user.imc}}</span>  </p>
+      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Condición física</span><span class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">{{user.condicion}}</span>  </p>
+      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Objetivo actual</span><span class="tw-text-xl tw-pl-10 tw-break-words text-purple-3">{{user.objetivo}}</span>  </p>
+      <p class="tw-pt-6">  <span class="tw-text-xl text-bold  tw-break-words">Total de rutinas</span><span class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">{{user.totalRutinas}}</span>  </p>
     </div>
   </div>
 </div>
@@ -61,9 +61,41 @@ export default {
         name: 'Nombre',
         ap: 'Ejemplo',
         am: 'Ejemplo',
-        email: 'ejemplo@ejemplo.com'
+        email: 'ejemplo@ejemplo.com',
+        peso: 70,
+        estatura: 1.7,
+        imc: null,
+        condicion: '',
+        objetivo: 'Bajar de peso',
+        totalRutinas: 5
       }
     }
+  },
+  methods: {
+    calculateIMC () {
+      this.user.imc = this.user.peso / (Math.pow(this.user.estatura,2))
+      this.user.imc = this.user.imc.toFixed(2)
+    },
+    calculatePhyCondition () {
+      switch (true) {
+        case (this.user.imc < 19):
+          this.user.condicion = 'Bajo peso'
+          break;
+        case (this.user.imc >= 19 && this.user.imc < 25):
+          this.user.condicion = 'Normal'
+          break;
+        case (this.user.imc >= 25 && this.user.imc < 30):
+          this.user.condicion = 'Sobrepeso'
+          break;
+        case (this.user.imc > 30):
+          this.user.condicion = 'Obesidad'
+          break;
+      }
+    }
+  },
+  beforeMount () {
+    this.calculateIMC()
+    this.calculatePhyCondition()
   }
 }
 </script>

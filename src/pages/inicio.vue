@@ -19,7 +19,7 @@
       <router-view />
     </q-page-container>
       <div class="col-6">
-        <q-img  src="https://i.ibb.co/RjGkp12/inicio.png" >
+        <q-img  src="https://www.skyfitnesschicago.com/wp-content/uploads/2016/10/Sky-Fitness-Chicago-ClassesPrograms-GroupExercise-MoveStrongFunctionalTraining-Header-Image.jpg" style="height: 450px" >
           <div class="absolute-full text-subtitle2 flex flex-center">
             <div class="text-h3 text-white text-center"> ¡Bienvenido de nuevo! &nbsp;  <div class="text-h6 text-white">En fitnetico estamos para servirte y seguir impulsaldo un estilo de vida saludable</div>
             </div>
@@ -30,13 +30,13 @@
     <div class="tw-mx-5">
     </div>
  
-<div class="tw-min-h-screen tw-flex tw-flex-col tw-mx-8">
+<div class="tw-min-h-screen flex flex-col tw-mx-8">
  <div class="tw-px-2 tw-py-16">
   <div class="tw-flex tw--mx-2">
     <div class="tw-w-1/3 tw-px-2">
       <div class=" tw-h-12">
         <div class="tw-py-6 tw-flex tw-mb-4 tw-px-2" >
-  <div class="tw-flex-1 tw-h-64 q-gutter-md row items-start">
+  <div class="col tw-flex-1 tw-h-64 q-gutter-md row items-start">
               <div class="tw-lg:w-1/3 tw-px-4 tw-mb-6 text-center">
 <q-card class="my-card">
                         <img class="responsive"

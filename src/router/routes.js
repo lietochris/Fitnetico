@@ -22,6 +22,16 @@ const routes = [{
         path: '/rutinas',
         component: () =>
             import ('pages/Rutinas.vue'),
+    },
+    {
+        path: '/rutinas/crear',
+        component: () =>
+            import ('pages/CrearRutina.vue'),
+    },
+    {
+        path: '/rutinas/ver/:slug',
+        component: () =>
+            import ('pages/VerRutina.vue'),
     }
 ]
 
