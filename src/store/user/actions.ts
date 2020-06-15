@@ -1,4 +1,5 @@
 import {auth, db} from 'src/config/firebase'
+import User from "src/interfaces/User";
 
 /**
  *
@@ -35,7 +36,7 @@ export function logout({commit}: any): void {
  * @param commit
  * @param payload
  */
-export function register({commit}: any, payload: any): void {
+export function register({commit}: any, payload: User): void {
   auth.createUserWithEmailAndPassword(payload.email, payload.password)
     .then((response: any) => {
       const data = {
