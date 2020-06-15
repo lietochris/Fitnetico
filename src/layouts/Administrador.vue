@@ -45,7 +45,7 @@
                         </q-item-section>
                     </q-item>
 
-                    <q-item to="/admin/crearejer" clickable v-ripple>
+                    <q-item to="/admin/crear" clickable v-ripple>
                         <q-item-section avatar>
                             <q-icon name="send" />
                         </q-item-section>
