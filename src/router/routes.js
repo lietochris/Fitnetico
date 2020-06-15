@@ -1,4 +1,3 @@
-
 const routes = [
   {
     path: '/',
@@ -25,7 +24,7 @@ const routes = [
     component: () => import('pages/Prueba.vue'),
   },
   
-]
+];
 
 // Always leave this as last one
 if (process.env.MODE !== 'ssr') {
