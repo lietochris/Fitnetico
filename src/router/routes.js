@@ -40,7 +40,7 @@ const routes = [
       { path: 'ejercicios', component: () => import('pages/EjerciciosAdmin.vue')},
       { path: 'usuario', component: () => import('pages/UsuarioAdmin.vue')},
       { path: 'perfil', component: () => import('pages/PerfilAdmin.vue')},
-      { path: 'crearejer', component: () => import('pages/CrearEjercicio.vue')},
+      { path: 'crear', component: () => import('pages/CrearEjercicio.vue')},
       { path: '', component: () => import('pages/Index.vue')}
     ]
   },
