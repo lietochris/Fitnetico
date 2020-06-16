@@ -14,12 +14,30 @@
         <div class="tw-flex tw-justify-center recentCE">
           <div class="tw-w-1/4"></div>
           <div class="tw-w-2/4">
-                <q-input color="cyan-5" input-class="text-white tw-justify-center" label-color="white" class="text-white tw-pt-8" v-model="nombr_ce" label="Nombre:" style="max-width: 800px" />
-                <q-input color="cyan-5" input-class="text-white tw-justify-center" label-color="white" class="text-white tw-pt-8" v-model="fortalec" label="Fortalece:" style="max-width: 800px" />
-                <q-input color="cyan-5" input-class="text-white tw-justify-center" label-color="white" class="text-white tw-pt-8" v-model="equip" label="Equipo:" style="max-width: 800px" />
+            <q-form @submit="onSubmit" @reset="onReset">
+                <q-input lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Porfavor llene el campo']" 
+                color="cyan-5" input-class="text-white tw-justify-center" label-color="white" 
+                class="text-white tw-pt-8" v-model="id_ejercicio" label="ID:" style="max-width: 800px" type="number"/>
+                
+                <q-input lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Porfavor llene el campo']"
+                color="cyan-5" input-class="text-white tw-justify-center" label-color="white" 
+                class="text-white tw-pt-8" v-model="nombr_ce" label="Nombre:" style="max-width: 800px" />
+                
+                <q-input lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Porfavor llene el campo']"
+                color="cyan-5" input-class="text-white tw-justify-center" label-color="white" 
+                class="text-white tw-pt-8" v-model="musculos" label="Fortalece:" style="max-width: 800px" />
+                
+                <q-input lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Porfavor llene el campo']"
+                color="cyan-5" input-class="text-white tw-justify-center" label-color="white" 
+                class="text-white tw-pt-8" v-model="tipo_obj" label="Objetivo del Ejercicio:" style="max-width: 800px" />
+                
                 <div class="tw-flex tw-flex-row tw-justify-center tw-pt-8">
                 <div class="text-white tw-justify-start tw-text-lg tw-pt-1">Dificultad:</div>
-                <q-rating v-model="ratingModel" size="2em" color="grey" :max="4" class="tw-justify-center tw-px-2" :color-selected="ratingColors">
+                <q-rating v-model="dificultad_ejercicio" size="2em" color="grey" :max="4" class="tw-justify-center tw-px-2" :color-selected="ratingColors">
                                 <template v-slot:tip-1>
                                   <q-tooltip>Facil</q-tooltip>
                                 </template>
@@ -34,51 +52,32 @@
                                 </template>
                 </q-rating>
                 </div>
-                <q-input color="cyan-5" input-class="text-white tw-justify-center" label-color="white" class="text-white tw-pt-8" v-model="descripci" label="Como realizarlo:" style="max-width: 800px" filled type="textarea" />
+                
+                <q-input lazy-rules
+                :rules="[ val => val && val.length > 0 || 'Porfavor llene el campo']"
+                color="cyan-5" input-class="text-white tw-justify-center" label-color="white" 
+                class="text-white tw-pt-8" v-model="descripci" label="Como realizarlo:" style="max-width: 800px" filled type="textarea" />
                 <p></p>
 
-                <div class="tw-flex tw-flex-col tw-bg-gray-700 tw-bg-opacity-25 tw-my-12">
+                <div class="tw-flex tw-flex-col tw-my-12">
                   <div class="tw-flex tw-justify-center tw-flex-row text-center tw-px-4 tw-py-2 tw-m-2"> 
                     <div class="tw-flex">
                       <q-uploader
                       url="http://localhost:4444/upload"
-                      label="Individual upload"
-                      multiple
-                      style="max-width: 300px"
-                      />
-                    </div>
-                  </div>
-                  <div class="tw-flex tw-justify-center tw-flex-row text-center tw-px-4 tw-py-2 tw-m-2"> 
-                    <div class="tw-flex">
-                      <q-uploader
-                      url="http://localhost:4444/upload"
-                      label="Individual upload"
-                      multiple
-                      style="max-width: 300px"
-                      />
-                    </div>
-                  </div>
-                  <div class="tw-flex tw-justify-center tw-flex-row text-center tw-px-4 tw-py-2 tw-m-2"> 
-                    <div class="tw-flex">
-                      <q-uploader
-                      url="http://localhost:4444/upload"
-                      label="Individual upload"
-                      multiple
-                      style="max-width: 300px"
-                      />
-                    </div>
-                  </div>
-                  <div class="tw-flex tw-justify-center tw-flex-row text-center tw-px-4 tw-py-2 tw-m-2"> 
-                    <div class="tw-flex">
-                      <q-uploader
-                      url="http://localhost:4444/upload"
-                      label="Individual upload"
+                      label="Foto individual"
                       multiple
                       style="max-width: 300px"
                       />
                     </div>
                   </div>
                 </div>
+
+                <div class="tw-my-8">
+                  <q-btn label="Guardar" type="submit" color="secondary" rounded/>
+                  <q-btn label="Reset" type="reset" color="white" flat class="q-ml-sm" />
+                </div>
+
+            </q-form>
           </div>
           <div class="tw-w-1/4"></div>
         </div>
@@ -96,13 +95,43 @@
   data() {
     return {
       left: false,
-      ratingModel: 4,
+      dificultad_ejercicio: 2,
       ratingColors: [ 'pink-13', 'pink-13', 'pink-13', 'pink-13', 'pink-13' ],
+      id_ejercicio: 666,
       nombr_ce: 'Push-Ups',
-      fortalec: 'Pectoral y Brazos',
-      equip: 'No requerido',
-      direccion: 'Avenida siempre viva',
+      musculos: 'Pectoral y Brazos',
+      tipo_obj: 'Adelgazar',
       descripci: 'Mamadisima',
+    }
+  },
+
+  methods: {
+    onSubmit () {
+      if (this.id_ejercicio == null || this.nombr_ce == null || this.musculos == null || this.tipo_obj == null || this.descripci == null || this.dificultad_ejercicio == 0) {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'warning',
+          message: 'Termina de llenar los campos'
+        })
+      }
+      else {
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'cloud_done',
+          message: 'Guardado'
+        })
+      }
+    },
+
+    onReset () {
+      this.id_ejercicio = null
+      this.nombr_ce = null
+      this.musculos = null
+      this.tipo_obj = null
+      this.dificultad_ejercicio = 0
+      this.descripci = null
     }
   }
 }
