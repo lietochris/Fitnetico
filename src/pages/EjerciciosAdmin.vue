@@ -14,7 +14,7 @@
         <div class="tw-w-full">
           <div class="tw-flex tw-flex-row tw-flex-wrap tw-px-5 tw-mb-5">
 
-            <div v-for="exercise in exercises" :key="exercise.id" class="tw-w-3/6 tw-p-3 ">
+            <div v-for="exercise in exercise.exercises" :key="exercise.id" class="tw-w-3/6 tw-p-3 ">
               <q-intersection once transition="scale">
                 <div class="flex tw-mb-4">
                   <div class="tw-w-full bg-grey-4" style="border-radius: 15px">
@@ -88,7 +88,12 @@
           </div>
 
           <div class="q-pa-lg flex flex-center tw-pt-12">
-            <q-pagination v-model="page" @input="onChangePage" :max="pages" :direction-links="true"></q-pagination>
+            <q-pagination
+              v-model="page"
+              @input="onChangePage(page)"
+              :max="exercise.pages"
+              :direction-links="true"
+            />
 
           </div>
         </div>
@@ -99,8 +104,7 @@
 </template>
 
 <script>
-
-    import {db} from "../config/firebase";
+    import {mapState, mapActions} from 'vuex'
 
     export default {
         name: 'EjercicioAdmin',
@@ -109,63 +113,17 @@
                 left: false,
                 ratingModel: 2,
                 ratingColors: ['pink-13', 'pink-13', 'pink-13', 'pink-13', 'pink-13'],
-                exercises: [],
-                total: 0,
-                pages: 0,
-                perPage: 2,
-                page: 1,
+                page: 1
             }
         },
         created() {
-            this.getExercises();
+            this.index();
+        },
+        computed: {
+            ...mapState(['exercise'])
         },
         methods: {
-            getExercises() {
-
-                //Get total of exercises
-                db.collection('exercises').get()
-                    .then(res => {
-                        this.total = res.size;
-                        this.pages = Math.ceil((this.total / this.perPage))
-                    });
-
-                // Get exercises
-                db.collection('exercises')
-                    .limit(this.perPage)
-                    .orderBy('difficult')
-                    .get()
-                    .then(query => {
-                        query.forEach(doc => {
-                            this.exercises.push({
-                                id: doc.id,
-                                ...doc.data()
-                            })
-                        })
-                    })
-            },
-            onChangePage() {
-
-                db.collection('exercises')
-                    .orderBy('difficult')
-                    .limit(this.perPage)
-                    .startAfter(this.perPage * (this.page - 1))
-                    .get()
-                    .then(query => {
-
-                        // Clear variable
-                        this.exercises = [];
-
-                        // Save data
-                        query.forEach(doc => {
-                            console.log(doc.data())
-                            this.exercises.push({
-                                id: doc.id,
-                                ...doc.data()
-                            })
-                        })
-                    })
-                    .catch(e => console.log(e))
-            }
+            ...mapActions('exercise', ['onChangePage', 'index'])
         }
     }
 </script>
