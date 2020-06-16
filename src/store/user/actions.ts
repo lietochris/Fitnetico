@@ -106,7 +106,7 @@ export function register({commit}: any, payload: User): void {
         weight: payload.weight,
         role: 'user'
       };
-      db.collection('users').doc(response.user.email).set(data);
+      db.collection('users').doc(response.user.uid).set(data);
       commit('SET_USER', {email: response.user.email, uid: response.user.uid})
     })
     .catch((error: any) => {

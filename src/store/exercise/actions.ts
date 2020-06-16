@@ -1,5 +1,5 @@
 import Exercise from "src/interfaces/Exercise";
-import {db} from "src/config/firebase";
+import {db, storage} from "src/config/firebase";
 
 /**
  * Return all exercises paginated
@@ -62,11 +62,25 @@ export function onChangePage({commit, state}: any, page: number) {
  * @param commit
  * @param payload
  */
-export async function store({commit}: any, payload: Exercise) {
+export async function store({commit}: any, payload: any) {
+
   try {
-    return await db.collection('exercises').add(payload)
+    const imageRef = storage.child(`exercises/${payload.image.name}`);
+    await imageRef.put(payload.image);
+
+    const url = await imageRef.getDownloadURL();
+
+    return await db.collection('exercises').add({
+
+      name: payload.name,
+      description: payload.description,
+      muscle: payload.muscle,
+      objective: payload.objective,
+      difficult: payload.difficult,
+      image: url
+    })
   } catch (e) {
     console.error(e)
   }
-  return "Nothing";
+
 }

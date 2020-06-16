@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore"
 import "firebase/auth"
+import "firebase/storage"
 import fi from "quasar/lang/fi";
 
 const config = {
@@ -16,5 +17,6 @@ const config = {
 firebase.initializeApp(config);
 const db = firebase.firestore();
 const auth = firebase.auth();
+const storage = firebase.storage().ref();
 
-export {firebase, db, auth}
+export {firebase, db, auth, storage}

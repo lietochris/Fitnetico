@@ -3,6 +3,6 @@ export default function () {
     exercises: [],
     total: 0,
     pages: 0,
-    perPage: 2,
+    perPage: 4,
   }
 }

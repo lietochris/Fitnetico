@@ -21,7 +21,8 @@
                     <div class="tw-flex tw-flex-row">
                       <div class="tw-flex tw-justify-center tw-p-6">
                         <img
-                          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/3-weighted-pushup-1495476721.jpg?crop=1xw:1xh;center,top&resize=320:*"
+                          :src="exercise.image"
+                          :alt="exercise.name"
                           class="responsive" width="160" height="30">
                       </div>
                       <div class="tw-flex-col">
