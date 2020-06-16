@@ -1,6 +1,9 @@
 export default function () {
   return {
     user: {},
-    error: ''
+    error: '',
+    total: 0,
+    pages: 0,
+    perPage: 2,
   }
 }

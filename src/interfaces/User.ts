@@ -6,5 +6,6 @@ export default interface User {
   paternalName: string,
   maternalName: string,
   height: number,
-  weight: number
+  weight: number,
+  role: string
 }

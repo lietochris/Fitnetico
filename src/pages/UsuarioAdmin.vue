@@ -13,7 +13,7 @@
       <div class="tw-flex tw-mb-4">
         <div class="tw-w-full">
           <div class="tw-flex tw-flex-row tw-flex-wrap tw-px-5 tw-mb-5">
-            <div v-for="user in users" :key="i" class="tw-w-3/6 tw-p-3 ">
+            <div v-for="user in user.users" :key="user.id" class="tw-w-3/6 tw-p-3 ">
               <q-intersection once transition="scale">
                 <div class="flex tw-mb-4">
                   <div class="tw-w-full recent_u">
@@ -70,7 +70,7 @@
           </div>
 
           <div class="q-pa-lg flex flex-center tw-pt-12">
-            <q-pagination v-model="page" @input="onChangePage" :max="pages" :direction-links="true"/>
+            <q-pagination v-model="page" @input="onChangePage(page)" :max="user.pages" :direction-links="true"/>
           </div>
         </div>
       </div>
@@ -81,70 +81,24 @@
 
 <script>
 
-    import {db} from "../config/firebase";
+    import {mapState, mapActions} from 'vuex'
 
     export default {
         name: 'UsuarioAdmin',
         data() {
             return {
                 left: false,
-                users: [],
-                total: 0,
-                pages: 0,
-                perPage: 4,
-                page: 1,
+                page: 1
             }
         },
         created() {
-            this.getUsers();
+            this.index();
+        },
+        computed: {
+            ...mapState(['user'])
         },
         methods: {
-            getUsers() {
-
-                //Get total of exercises
-                db.collection('users').get()
-                    .then(res => {
-                        this.total = res.size;
-                        this.pages = Math.ceil((this.total / this.perPage))
-                    });
-
-                // Get exercises
-                db.collection('users')
-                    .limit(this.perPage)
-                    .orderBy('weight')
-                    .get()
-                    .then(query => {
-                        query.forEach(doc => {
-                            this.users.push({
-                                id: doc.id,
-                                ...doc.data()
-                            })
-                        })
-                    })
-            },
-            onChangePage() {
-
-                db.collection('users')
-                    .orderBy('weight')
-                    .limit(this.perPage)
-                    .startAfter(this.perPage * (this.page - 1))
-                    .get()
-                    .then(query => {
-
-                        // Clear variable
-                        this.users = [];
-
-                        // Save data
-                        query.forEach(doc => {
-                            console.log(doc.data())
-                            this.users.push({
-                                id: doc.id,
-                                ...doc.data()
-                            })
-                        })
-                    })
-                    .catch(e => console.log(e))
-            }
+            ...mapActions('user', ['index', 'onChangePage'])
         }
     }
 </script>
