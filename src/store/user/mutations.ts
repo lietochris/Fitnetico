@@ -13,11 +13,3 @@ export function REMOVE_USER(state: any): void {
 export function SET_USERS(state: any, payload: Array<any>) {
   state.users = payload;
 }
-
-export function SET_TOTAL(state: any, payload: number) {
-  state.total = payload;
-}
-
-export function SET_PAGES(state: any, payload: number) {
-  state.pages = payload;
-}

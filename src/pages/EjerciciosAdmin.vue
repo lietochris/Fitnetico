@@ -14,7 +14,7 @@
         <div class="tw-w-full">
           <div class="tw-flex tw-flex-row tw-flex-wrap tw-px-5 tw-mb-5">
 
-            <div v-for="exercise in exercise.exercises" :key="exercise.id" class="tw-w-3/6 tw-p-3 ">
+            <div v-for="exercise in exercises" :key="exercise.id" class="tw-w-3/6 tw-p-3 ">
               <q-intersection once transition="scale">
                 <div class="flex tw-mb-4">
                   <div class="tw-w-full bg-grey-4" style="border-radius: 15px">
@@ -55,6 +55,7 @@
                         <div class="tw-flex tw-flex-row">
                           <q-rating v-model="exercise.difficult" size="2em" color="grey" :max="4" readonly
                                     class="tw-px-2"
+                                    icon="fitness_center"
                                     :color-selected="ratingColors">
                             <template v-slot:tip-1>
                               <q-tooltip>Facil</q-tooltip>
@@ -88,15 +89,6 @@
 
           </div>
 
-          <div class="q-pa-lg flex flex-center tw-pt-12">
-            <q-pagination
-              v-model="page"
-              @input="onChangePage(page)"
-              :max="exercise.pages"
-              :direction-links="true"
-            />
-
-          </div>
         </div>
       </div>
 
@@ -112,19 +104,17 @@
         data() {
             return {
                 left: false,
-                ratingModel: 2,
                 ratingColors: ['pink-13', 'pink-13', 'pink-13', 'pink-13', 'pink-13'],
-                page: 1
             }
         },
         created() {
             this.index();
         },
         computed: {
-            ...mapState(['exercise'])
+            ...mapState('exercise', ['exercises'])
         },
         methods: {
-            ...mapActions('exercise', ['onChangePage', 'index'])
+            ...mapActions('exercise', ['index'])
         }
     }
 </script>

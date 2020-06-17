@@ -13,7 +13,7 @@
       <div class="tw-flex tw-mb-4">
         <div class="tw-w-full">
           <div class="tw-flex tw-flex-row tw-flex-wrap tw-px-5 tw-mb-5">
-            <div v-for="user in user.users" :key="user.id" class="tw-w-3/6 tw-p-3 ">
+            <div v-for="user in users" :key="user.id" class="tw-w-3/6 tw-p-3 ">
               <q-intersection once transition="scale">
                 <div class="flex tw-mb-4">
                   <div class="tw-w-full recent_u">
@@ -68,10 +68,6 @@
               </q-intersection>
             </div>
           </div>
-
-          <div class="q-pa-lg flex flex-center tw-pt-12">
-            <q-pagination v-model="page" @input="onChangePage(page)" :max="user.pages" :direction-links="true"/>
-          </div>
         </div>
       </div>
 
@@ -88,17 +84,16 @@
         data() {
             return {
                 left: false,
-                page: 1
             }
         },
         created() {
             this.index();
         },
         computed: {
-            ...mapState(['user'])
+            ...mapState('user', ['users'])
         },
         methods: {
-            ...mapActions('user', ['index', 'onChangePage'])
+            ...mapActions('user', ['index'])
         }
     }
 </script>

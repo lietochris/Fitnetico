@@ -1,9 +1,7 @@
 export default function () {
   return {
     user: {},
+    users: [],
     error: '',
-    total: 0,
-    pages: 0,
-    perPage: 2,
   }
 }
