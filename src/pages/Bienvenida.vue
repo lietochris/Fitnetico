@@ -7,7 +7,7 @@
         </q-toolbar-title>
                 <q-space />
         <q-separator vertical /> 
-        <q-btn color="grey-4" size="10px" stretch flat label="Contacto"/>
+
         <q-btn color="grey-4" size="10px" stretch flat label="Expertos"/>
         <q-btn color="grey-4" size="10px" stretch flat label="Iniciar Sesión"/>
       </q-toolbar> 
@@ -26,7 +26,7 @@
  <main>
     <section class="acerca-de">
     <div class="info-container">
-      <h1>Acerca de Nosotros</h1>
+      <h1>Quienes Somos?</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie in risus eget iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed at ultricies lacus. Sed ut ornare mi, ac blandit nibh. Nulla sollicitudin lorem consequat, porta est ut, scelerisque risus. Morbi iaculis a sem quis iaculis. Sed facilisis turpis placerat, aliquam augue in, aliquet lectus.</p>
       <p>Aliquam erat volutpat. Aliquam pellentesque velit ut neque consequat, id accumsan est cursus. Ut ut leo at dolor molestie porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer auctor gravida quam et faucibus. Vivamus vel porttitor leo, ac ornare odio. Praesent finibus mi urna, sed vehicula dolor bibendum vel.</p>
       <div class="about-gallery">
@@ -496,79 +496,6 @@ body{
 }
 @media only screen and (max-width:446px){
     .our-projects .container-project .project-title h2{font-size: 30px;}
-}
-
-/** Testimonios **/
-.testimonios{
-    width: 100%;
-    margin-top: 120px;
-}
-.testimonios .testimonios-title{
-    width: 50%;
-    margin:auto;
-    text-align: center;
-}
-.testimonios .testimonios-title h2{
-    font-size: 50px;
-    font-weight: normal;
-    color: var(--black);
-    margin-bottom: 10px;
-}
-.testimonios .testimonios-title hr{
-    width: 60%;
-    height: 2px;
-    margin:auto;
-    background: var(--black);
-}
-.testimonios .box-testimonio{
-    width: 90%;
-    margin: 80px auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.testimonios .box-testimonio .card-testimonio{
-    width: 45%;
-    margin: 20px;
-}
-.testimonios .box-testimonio .card-testimonio .card-img{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-.testimonios .box-testimonio .card-testimonio .card-img img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-}
-.testimonios .box-testimonio .card-testimonio .testimonio-text{
-    border: 2px solid var(--red);
-    padding:20px;
-    border-radius: 20px;
-    transition: 0.1s;
-    cursor: pointer;
-}
-.testimonios .box-testimonio .card-testimonio .testimonio-text h4{
-    font-size: 30px;
-    font-weight: 400;
-    color: var(--red);
-    text-align: center;
-    margin-bottom: 10px;
-    transition: 0.1s;
-}
-.testimonios .box-testimonio .card-testimonio .testimonio-text p{
-    font-size: 20px;
-    text-align: center;
-    line-height: 40px;
-    color: var(--black);
-}
-.testimonios .box-testimonio .card-testimonio .testimonio-text:hover{
-    border: 2px solid var(--blue);
-}
-.testimonios .box-testimonio .card-testimonio .testimonio-text:hover h4{
-    color: var(--blue);
 }
 
 @media only screen and (max-width:890px){
