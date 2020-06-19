@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // import example from './module-example'
 import user from './user'
+// import routine from './routine'
+import exercise from './exercise'
 
 Vue.use(Vuex);
 
@@ -17,7 +19,9 @@ Vue.use(Vuex);
 export default function (/* { ssrContext } */) {
   return new Vuex.Store({
     modules: {
-      user
+      user,
+      // routine,
+      exercise
     },
 
     // enable strict mode (adds overhead!)

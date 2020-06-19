@@ -9,3 +9,7 @@ export function SET_USER(state: any, payload: object): void {
 export function REMOVE_USER(state: any): void {
   state.user = null
 }
+
+export function SET_USERS(state: any, payload: Array<any>) {
+  state.users = payload;
+}

@@ -1,4 +1,4 @@
-export function test(state: any) {
+/*export function test(state: any) {
   return 'hola'
-}
+}*/
 

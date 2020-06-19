@@ -1,4 +1,16 @@
 import {auth, db} from 'src/config/firebase'
+import User from "src/models/User";
+
+const user = new User();
+
+/**
+ *
+ * @param commit
+ * @param state
+ */
+export async function index({commit}: any) {
+  commit('SET_USERS', await user.all())
+}
 
 /**
  *
@@ -40,10 +52,12 @@ export function register({commit}: any, payload: any): void {
     .then((response: any) => {
       const data = {
         name: payload.name,
+        email: payload.email,
         paternalName: payload.paternalName,
         maternalName: payload.maternalName,
         height: payload.height,
         weight: payload.weight,
+        role: 'user'
       };
       db.collection('users').doc(response.user.uid).set(data);
       commit('SET_USER', {email: response.user.email, uid: response.user.uid})
