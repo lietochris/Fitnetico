@@ -1,8 +1,32 @@
 const routes = [
   {
-    path: '/',
     component: () => import('pages/Index.vue')
   },
+    
+      {
+    path: '/Bienvenida',
+    component: () => 
+      import ('pages/Bienvenida.vue'),
+  },
+
+  {
+    path: '/Expertos',
+    component: () => 
+      import ('pages/Expertos.vue'),
+  },
+
+  {
+    path: '/Registro',
+    component: () => 
+      import ('pages/Registro.vue'),
+  },
+
+  {
+    path: '/Login',
+    component: () => 
+      import ('pages/Login.vue'),
+  },
+
 
   // Usuarios
   {
