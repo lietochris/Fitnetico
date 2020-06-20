@@ -7,11 +7,11 @@
         <img src="https://i.ibb.co/hHZ5Qkd/logo.png" class="responsive" width="120" height="30">
         </q-toolbar-title>
                 <q-space />
-        <q-separator vertical /> 
-        
-        <q-btn color="grey-4" size="10px" stretch flat label="Expertos"/>
-        <q-btn color="grey-4" size="10px" stretch flat label="Iniciar Sesión"/>
-      </q-toolbar> 
+        <q-separator vertical />
+
+        <q-btn to="/expertos" color="grey-4" size="10px" stretch flat label="Expertos"/>
+        <q-btn to="/login" color="grey-4" size="10px" stretch flat label="Iniciar Sesión"/>
+      </q-toolbar>
     </q-header>
 
 
@@ -66,7 +66,7 @@
 <script>
 export default {
   data () {
-    
+
   }
 }
 </script>
@@ -84,7 +84,7 @@ export default {
   border: 1px solid #ccc
   padding: 0 1rem
   margin: 1rem
-  
+
 
 .my-card
   width: 300px

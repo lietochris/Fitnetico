@@ -1,30 +1,39 @@
 const routes = [
+
   {
-    component: () => import('pages/Index.vue')
-  },
-    
-      {
-    path: '/Bienvenida',
-    component: () => 
-      import ('pages/Bienvenida.vue'),
+    path: '/',
+    component: () =>
+      import ('pages/Index.vue'),
+    meta: {
+      guest: true
+    }
   },
 
   {
-    path: '/Expertos',
-    component: () => 
+    path: '/expertos',
+    component: () =>
       import ('pages/Expertos.vue'),
+    meta: {
+      guest: true
+    }
   },
 
   {
-    path: '/Registro',
-    component: () => 
+    path: '/registro',
+    component: () =>
       import ('pages/Registro.vue'),
+    meta: {
+      guest: true
+    }
   },
 
   {
-    path: '/Login',
-    component: () => 
+    path: '/login',
+    component: () =>
       import ('pages/Login.vue'),
+    meta: {
+      guest: true
+    }
   },
 
 
@@ -33,26 +42,41 @@ const routes = [
     path: '/inicio',
     component: () =>
       import ('pages/inicio.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/perfil',
     component: () =>
       import ('pages/Perfil.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/rutinas',
     component: () =>
       import ('pages/Rutinas.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/rutinas/crear',
     component: () =>
       import ('pages/CrearRutina.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/rutinas/ver/:slug',
     component: () =>
       import ('pages/VerRutina.vue'),
+    meta: {
+      auth: true
+    }
   },
 
   // Admin
@@ -65,13 +89,12 @@ const routes = [
       {path: 'perfil', component: () => import('pages/PerfilAdmin.vue')},
       {path: 'crear', component: () => import('pages/CrearEjercicio.vue')},
       {path: '', component: () => import('pages/Index.vue')}
-    ]
-  },
-
-  {
-    path: '/prueba',
-    component: () => import('pages/Prueba.vue'),
-  },
+    ],
+    meta: {
+      auth: true,
+      admin: true
+    }
+  }
 
 ];
 

@@ -1,6 +1,6 @@
 export default function () {
   return {
-    user: {},
+    user: null,
     users: [],
     error: '',
   }

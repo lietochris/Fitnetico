@@ -20,7 +20,6 @@ export default function (/* { ssrContext } */) {
   return new Vuex.Store({
     modules: {
       user,
-      // routine,
       exercise
     },
 

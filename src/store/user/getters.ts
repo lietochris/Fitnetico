@@ -1,4 +1,5 @@
-/*export function test(state: any) {
-  return 'hola'
-}*/
+export function isLogged(state: any) {
+  return state.user !== null;
+
+}
 
