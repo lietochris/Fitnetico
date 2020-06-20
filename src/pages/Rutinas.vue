@@ -17,47 +17,27 @@
           </div>
         </div>
       </div>
-      <router-link to="/rutinas/ver/actual">
-        <div class="flex tw-mb-4 tw-px-6">
-          <div class="tw-w-full tw-h-40 recent">
-            <p class="text-center tw-pt-8 text-white tw-text-xl text-bold "> Rutina actual</p>
-            <p class="tw-pl-8 tw-pt-4 text-white tw-text-md "><span>objetivo: xxxxx </span> <span class="tw-pr-8"
-                                                                                                  style="float:right;"> Dificultad: xxxxx </span>
-            </p>
-            <div class="tw-h-8 bg-dark"></div>
-          </div>
-        </div>
-      </router-link>
 
       <div class="flex tw-mb-4">
         <div class="tw-w-full">
           <div class="tw-flex tw-flex-row tw-flex-wrap tw-px-5 tw-mb-5">
-            <div v-for="i in 6" :key="i" class="tw-w-1/2 tw-p-1">
+            <div v-for="(routine, i) in routines" :key="i" class="tw-w-1/2 tw-p-1">
               <q-intersection
                 once
                 transition="scale"
               >
-                <router-link :to="'/rutinas/ver/rutina' + i">
+                <router-link :to="`/rutinas/ver/${routine.id}`">
                   <div class="flex tw-mb-4 ">
                     <div class="tw-w-full tw-h-40 routine">
-                      <p class="text-center tw-pt-8 text-white tw-text-xl text-bold "> Rutina</p>
-                      <p class="tw-pl-8 tw-pt-4 text-white tw-text-md tw-break-words"><span>objetivo: xxxxx </span>
-                        <span class="tw-pr-8" style="float:right;"> Dificultad: xxxxx </span></p>
+                      <p class="text-center tw-pt-8 text-white tw-text-xl text-bold "> Rutina {{i + 1}}</p>
+                      <p class="tw-pl-8 tw-pt-4 text-white tw-text-md tw-break-words"><span>objetivo: {{routine.difficult}} </span>
+                        <span class="tw-pr-8" style="float:right;"> Dificultad: {{routine.difficult}} </span></p>
                       <div class="tw-h-8 bg-dark"></div>
                     </div>
                   </div>
                 </router-link>
               </q-intersection>
             </div>
-          </div>
-
-          <div class="q-pa-lg flex flex-center tw-pt-12">
-            <q-pagination
-              v-model="current"
-              :max="3"
-              :direction-links="true"
-            >
-            </q-pagination>
           </div>
 
         </div>
@@ -76,8 +56,14 @@
         name: 'Rutinas',
         components: {FHeader},
         data() {
-            return {
-                current: 1
+            return {}
+        },
+        created() {
+            this.$store.dispatch('routine/index')
+        },
+        computed: {
+            routines() {
+                return this.$store.state.routine.routines
             }
         }
     }
