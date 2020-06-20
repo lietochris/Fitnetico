@@ -44,7 +44,13 @@
       </div>
     </div>
 
-    <div class="tw-py-8 bg-dark text-center tw-text-gray-500">Fitnetico 2020</div>
+    <q-footer class="bg-dark text-white">
+      <q-toolbar>
+        <q-toolbar-title class="tw-flex tw-justify-center tw-text-gray-500 tw-text-xs">
+          Fitnetico © 2020
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
 
   </q-layout>
 </template>

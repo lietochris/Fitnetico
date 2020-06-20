@@ -8,6 +8,14 @@ const routes = [
       guest: true
     }
   },
+  {
+    path: '/acerca-de',
+    component: () =>
+      import ('pages/AcercaDe.vue'),
+    meta: {
+      auth: true
+    }
+  },
 
   {
     path: '/expertos',

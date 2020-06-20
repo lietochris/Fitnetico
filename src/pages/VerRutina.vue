@@ -212,7 +212,7 @@
       </div>
     </div>
 
-    <div class="tw-grid tw-m-8 tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-4">
+    <div class="tw-grid tw-mx-8 tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-4">
       <div class=" tw-m-2 text-center">
         <img style="height:150px" class="responsive" :src="legs.one.img" alt="">
         <p class="tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> {{legs.one.name}} </p>
@@ -246,7 +246,13 @@
         <p class="tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> {{legs.one.name}} </p>
       </div>
     </div>
-    <div class="tw-py-8 bg-dark text-center tw-text-gray-500">Fitnetico 2020</div>
+    <q-footer class="bg-dark text-white">
+      <q-toolbar>
+        <q-toolbar-title class="tw-flex tw-justify-center tw-text-gray-500 tw-text-xs">
+          Fitnetico © 2020
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-layout>
 </template>
 
