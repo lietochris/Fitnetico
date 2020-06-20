@@ -1,90 +1,93 @@
 <template>
-  <body background="https://i.ibb.co/vs5qHRY/Fondo2.jpg">
-  <q-layout>
-    <q-header elevated class="bg-dark text-white">
-      <q-toolbar>
-        <q-toolbar-title>
-          <img src="https://i.ibb.co/hHZ5Qkd/logo.png" class="responsive" width="120" height="30">
-        </q-toolbar-title>
-        <q-space/>
-        <q-separator vertical/>
-        <q-btn color="grey-4" size="10px" stretch flat label="Expertos"/>
-        <q-btn color="grey-4" size="10px" stretch flat label="Iniciar Sesión"/>
-      </q-toolbar>
-    </q-header>
 
-    <div class="text-h6">-</div>
-    <div class="text-h6">-</div>
+  <q-layout view="hHh lpR fFf">
 
-    <div class="User" align="center">
-      <img src="https://i.ibb.co/RNfGB7M/user.png" width="225" height="225">
-    </div>
+    <f-header/>
 
-    <div class="q-pa-md">
-      <div class="q-gutter-md row items-start">
-        <q-form>
-          <q-input v-model="form.name" filled type="Nombre" hint="Nombre"/>
-
-          <q-input v-model="Apellido" filled type="Apellido" hint="Apellido"/>
-
-          <q-input v-model="date" filled type="Fecha De Nacimiento" hint="Fecha De Nacimiento"/>
-
-          <q-input v-model="Altura" filled type="Altura" hint="Altura"/>
-
-          <q-input v-model="Peso" filled type="Peso" hint="Peso"/>
-
-          <q-input v-model="tel" filled type="tel" hint="Numero Telefonico"/>
-
-          <q-input v-model="email" filled type="email" hint="Email"/>
-
-          <q-input v-model="password" filled type="Password" hint="Contraseña"/>
-
-          <q-input v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Contraseña Oculta">
-            <template v-slot:append>
-              <q-icon
-                :name="isPwd ? 'visibility_off' : 'visibility'"
-                class="cursor-pointer"
-                @click="isPwd = !isPwd"
+    <q-page-container>
+      <q-page class=" tw-flex tw-justify-center tw-items-center">
+        <q-card class="tw-w-3/4 lg:tw-w-1/2">
+          <q-card-section>
+            <div class="text-h4 text-center text-bold text-primary">Registro</div>
+            <q-form @submit="register" class="tw-mx-1 lg:tw-mx-12 text-center">
+              <q-input
+                class="tw-my-5"
+                standout=""
+                v-model="form.name"
+                rounded
+                label="Nombre"
+                :rules="[val => !!val || 'Campo requerido']"
               />
-            </template>
-          </q-input>
-          <q-btn color="black" size="20px" stretch flat label="Registrarse"/>
-        </q-form>
-      </div>
-    </div>
+              <q-input
+                class="tw-my-5"
+                standout=""
+                v-model="form.paternalName"
+                rounded
+                label="Apellido Paterno"
+                :rules="[val => !!val || 'Campo requerido']"
+              />
+              <q-input
+                class="tw-my-5"
+                standout=""
+                v-model="form.maternalName"
+                rounded
+                label="Apellido Materno"
+                :rules="[val => !!val || 'Campo requerido']"
+              />
+              <q-input
+                class="tw-my-5"
+                standout=""
+                v-model="form.email"
+                type="email"
+                rounded
+                label="Correo electronico"
+                :rules="[val => !!val || 'Campo requerido']"
+              />
+              <q-input
+                class="tw-my-5"
+                standout=""
+                v-model="form.password"
+                rounded
+                label="Contraseña"
+                type="password"
+                :rules="[val => !!val || 'Campo requerido']"
+              />
+              <q-btn class="tw-px-4 tw-py-1" type="submit" color="primary" rounded label="Registrarse"/>
+            </q-form>
+          </q-card-section>
+        </q-card>
+      </q-page>
+    </q-page-container>
+
+    <q-footer class="bg-dark text-white">
+      <q-toolbar>
+        <q-toolbar-title class="tw-flex tw-justify-center tw-text-gray-500 tw-text-xs">
+          Fitnetico © 2020
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
 
   </q-layout>
-  </body>
+
 </template>
 
 <script>
+    import FHeader from "../components/FHeader";
+
     export default {
+        components: {FHeader},
         data() {
             return {
                 form: {},
-                password: '',
-                isPwd: true,
-
-                Nombre: '',
-                Apellido: '',
-                Altura: '',
-                Peso: '',
-
-                email: '',
-                tel: '',
-                url: '',
-                time: '',
-                date: ''
+            }
+        },
+        methods: {
+            register() {
+                this.$store.dispatch('user/register', this.form)
+                    .then(() => {
+                        this.$router.go('/inicio')
+                    })
             }
         }
     }
 </script>
-
-<style lang="sass" scoped>
-
-  .q-pa-md
-    margin-left: auto
-    margin-right: auto
-    bottom: -1000px
-
-</style>

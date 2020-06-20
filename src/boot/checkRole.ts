@@ -4,14 +4,11 @@ import {boot} from 'quasar/wrappers'
 // more info on params: https://quasar.dev/quasar-cli/cli-documentation/boot-files#Anatomy-of-a-boot-file
 export default boot(({store, router}) => {
 
-
   router.beforeEach((to, from, next) => {
-
 
     // Admin
     if (to.matched.some(record => record.meta.auth) && to.matched.some(record => record.meta.admin)) {
       const user = store.state.user.user;
-      console.log('guest', user)
       if (user && user.role === 'admin') {
         next()
       } else {
@@ -21,7 +18,6 @@ export default boot(({store, router}) => {
     // Auth
     else if (to.matched.some(record => record.meta.auth)) {
       const user = store.state.user.user;
-      console.log('guest', user)
       if (user === null) {
         next('/login')
       } else {
@@ -31,7 +27,6 @@ export default boot(({store, router}) => {
     // Guest
     else if (to.matched.some(record => record.meta.guest)) {
       const user = store.state.user.user;
-      console.log('guest', user)
       if (user !== null) {
         next('/inicio')
       } else {
