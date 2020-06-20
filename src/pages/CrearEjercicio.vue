@@ -106,8 +106,8 @@
             return {
                 left: false,
                 ratingColors: ['pink-13', 'pink-13', 'pink-13', 'pink-13', 'pink-13'],
-                muscleOptions: ['Biceps', 'Triceps', 'Abdomen', 'Pecho', 'Espalda', 'Trapecio'],
-                objectiveOptions: ['Tonificar cuerpo', 'Subir de peso', 'Bajar de peso'],
+                muscleOptions: ['Biceps', 'Triceps', 'Hombro', 'Pecho', 'Espalda', 'Trapecio', 'Pierna'],
+                objectiveOptions: ['Subir de peso', 'Bajar de peso'],
                 form: {
                     difficult: 2
                 },

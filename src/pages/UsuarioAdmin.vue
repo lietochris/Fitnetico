@@ -40,7 +40,11 @@
                           </div>
                         </div>
 
-                        <div class="tw-flex tw-flex-row">
+                        <div class="tw-flex tw-flex-row tw-my-8">
+                            <q-btn no-caps label="Administrador" type="submit" color="secondary" rounded/>
+                        </div>
+                        
+                        <!-- <div class="tw-flex tw-flex-row">
                           <p class="tw-pt-2 tw-px-2 text-white tw-text-lg tw-break-words tw-font-mono">
                             Peso:
                           </p>
@@ -56,7 +60,7 @@
                           <div class="tw-pt-2 text-white tw-text-lg tw-break-words tw-font-mono">
                             {{user.height}}
                           </div>
-                        </div>
+                        </div> -->
 
 
                       </div>
@@ -84,6 +88,7 @@
         data() {
             return {
                 left: false,
+                btn_admin: false,
             }
         },
         created() {
