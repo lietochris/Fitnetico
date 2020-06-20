@@ -35,8 +35,6 @@ const routes = [
       guest: true
     }
   },
-
-
   // Usuarios
   {
     path: '/inicio',
