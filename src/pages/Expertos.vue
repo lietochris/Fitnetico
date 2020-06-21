@@ -15,7 +15,7 @@
     <div class="q-pa-md row items-start q-gutter-md">
 
       <q-card class="my-card">
-        <img src="https://i.ibb.co/mb2rtrR/Coach1.jpg">
+        <q-img src="https://i.ibb.co/mb2rtrR/Coach1.jpg" height="420px"/>
 
         <q-card-section>
           <div class="text-h6">Pablo Villava Servin</div>
@@ -23,7 +23,7 @@
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-          <div class="text-h7">Lic. en Nutrición De La Universidad Del Valle De México - Fisicoculturista - Dueño de
+          <div class="text-h7 tw-text-justify">Lic. en Nutrición De La Universidad Del Valle De México - Fisicoculturista - Dueño de
             Pablo´s Gym y Monster Gym - 1° Lugar Mr México Absoluto (2005).
           </div>
         </q-card-section>
@@ -31,23 +31,23 @@
 
 
       <q-card class="my-card">
-        <img src="https://i.ibb.co/9Hbj8fp/005.jpg">
+        <q-img src="https://i.ibb.co/9Hbj8fp/005.jpg" height="420px"/>
 
         <q-card-section>
-          <div class="text-h6">Coachs</div>
+          <div class="text-h6">Coaches</div>
           <div class="text-subtitle2">Asesores, Entrenadores y Guias.</div>
         </q-card-section>
 
-        <q-card-section class="q-pt-none">
-          <div class="text-h7">Contamos con el mejor equipo para asesorar, guiar y entrenar a nuestros clientes. Todos
+        <q-card-section class="q-pt-none ">
+          <div class="text-h7 tw-text-justify">Contamos con el mejor equipo para asesorar, guiar y entrenar a nuestros clientes. Todos
             nuestros Coaches cuentan con certificación y años de experiencia en el área del ficicoculturismo.
           </div>
         </q-card-section>
       </q-card>
 
 
-      <q-card class="my-card">
-        <img src="https://i.ibb.co/5FkR65M/Coach3.jpg">
+      <q-card class="my-card" style="">
+        <q-img src="https://i.ibb.co/5FkR65M/Coach3.jpg" height="420px"/>
 
         <q-card-section>
           <div class="text-h6">Esposa De Ms. Musculo</div>
@@ -55,7 +55,7 @@
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-          <div class="text-h7">Ganadora de la mejor sonrisa (2015). Primer lugar en robar los corazones de los
+          <div class="text-h7 tw-text-justify">Ganadora de la mejor sonrisa (2015). Primer lugar en robar los corazones de los
             participantes Olimpia 2016.
           </div>
         </q-card-section>
@@ -96,7 +96,7 @@
     bottom: -40px
 
   .q-pt-none
-    background: border-box orange
+    // background: border-box orange
 
 </style>
 
