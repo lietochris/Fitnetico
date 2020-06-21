@@ -135,7 +135,7 @@
               </div>
               <div class="tw-w-1/3 tw-h-12">
                 <div class="tw-md:w-1/3 tw-p-8 tw-md:border-l">
-                  <router-link to="/experto" style="color:black; text-decoration: none;">
+                  <router-link to="/sistema-experto" style="color:black; text-decoration: none;">
                     <img class="tw-w-1/3 tw-mx-auto tw-mb-4 tw-rounded-full tw-h-64 tw-w-full responsive"
                          src="https://img-s2.onedio.com/id-538edd753686a29d4eab98f7/rev-0/raw/s-c7630f957233a13e259fef20603ccf79375e4bd4.jpg"
                          alt="">

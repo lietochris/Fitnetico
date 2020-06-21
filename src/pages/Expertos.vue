@@ -8,9 +8,6 @@
         </q-toolbar-title>
         <q-space/>
         <q-separator vertical/>
-
-        <q-btn to="/expertos" color="grey-4" size="10px" stretch flat label="Expertos"/>
-        <q-btn to="/login" color="grey-4" size="10px" stretch flat label="Iniciar Sesión"/>
       </q-toolbar>
     </q-header>
 
