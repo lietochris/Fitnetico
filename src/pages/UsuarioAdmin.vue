@@ -39,28 +39,22 @@
                             {{user.email}}
                           </div>
                         </div>
-
-                        <div class="tw-flex tw-flex-row tw-my-8">
-                            <q-btn no-caps label="Administrador" type="submit" color="secondary" rounded/>
-                        </div>
-                        
-                        <!-- <div class="tw-flex tw-flex-row">
-                          <p class="tw-pt-2 tw-px-2 text-white tw-text-lg tw-break-words tw-font-mono">
-                            Peso:
-                          </p>
-                          <div class="tw-pt-2 text-white tw-text-lg tw-break-words tw-font-mono">
-                            {{user.weight}}
-                          </div>
-                        </div>
-
                         <div class="tw-flex tw-flex-row">
                           <p class="tw-pt-2 tw-px-2 text-white tw-text-lg tw-break-words tw-font-mono">
-                            ALtura:
+                            Rol:
                           </p>
                           <div class="tw-pt-2 text-white tw-text-lg tw-break-words tw-font-mono">
-                            {{user.height}}
+                            {{user.role}}
                           </div>
-                        </div> -->
+                        </div>
+
+                        <div class="tw-flex tw-flex-row tw-justify-end tw-mx-5 tw-my-8">
+                          <q-btn color="blue" round icon="edit" @click="setUser({id:user.id, role:user.role})">
+                            <q-tooltip>
+                              Editar
+                            </q-tooltip>
+                          </q-btn>
+                        </div>
 
 
                       </div>
@@ -76,29 +70,71 @@
       </div>
 
     </div>
+
+    <q-dialog v-model="modal">
+      <q-card class="tw-w-1/2">
+        <q-card-section>
+          <div class="text-h6">Editar usuario</div>
+        </q-card-section>
+
+        <q-card-section>
+          <q-select
+            rounded
+            standout
+            v-model="user.role"
+            :options="['usuario', 'admin']"
+            label="Rol de usuario"
+          />
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Actualizar" @click="changeRole" color="primary" v-close-popup/>
+          <q-btn flat label="Cancelar" color="primary" v-close-popup/>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 
     import {mapState, mapActions} from 'vuex'
+    import {Notify} from 'quasar'
 
     export default {
         name: 'UsuarioAdmin',
         data() {
             return {
+                form: {},
+                user: {},
                 left: false,
-                btn_admin: false,
+                modal: false,
+
             }
         },
         created() {
             this.index();
         },
         computed: {
-            ...mapState('user', ['users'])
+            ...mapState('user', ['users']),
         },
         methods: {
-            ...mapActions('user', ['index'])
+            ...mapActions('user', ['index']),
+            changeRole() {
+                this.$store.dispatch('user/update', {id: this.user.id, role: this.user.role})
+                    .then(() => {
+                        this.index();
+                        Notify.create({
+                            message: 'Usuario actualizado correctamente',
+                            color: 'blue',
+                            position: 'top-left'
+                        })
+                    })
+            },
+            setUser(user) {
+                this.modal = true;
+                this.user = user;
+            }
         }
     }
 </script>

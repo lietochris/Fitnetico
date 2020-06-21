@@ -75,22 +75,19 @@ export async function register({commit}: any, payload: any): Promise<boolean> {
     commit('SET_ERROR', e.code);
     return false;
   }
-  // auth.createUserWithEmailAndPassword(payload.email, payload.password)
-  //   .then((response: any) => {
-  //     const data = {
-  //       name: payload.name,
-  //       email: payload.email,
-  //       paternalName: payload.paternalName,
-  //       maternalName: payload.maternalName,
-  //       // height: payload.height,
-  //       // weight: payload.weight,
-  //       role: 'user'
-  //     };
-  //     db.collection('users').doc(response.user.uid).set(data).then(() => {
-  //       commit('SET_USER', {email: response.user.email, uid: response.user.uid})
-  //     })
-  //   })
-  //   .catch((error: any) => {
-  //     commit('SET_ERROR', error.code)
-  //   })
+}
+
+/**
+ *
+ * @param commit
+ * @param payload
+ */
+export async function update({commit}: any, payload: any) {
+  try {
+    const response = await user.update(payload.id, payload);
+    return true;
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
 }
