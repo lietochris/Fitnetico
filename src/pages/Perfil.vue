@@ -19,9 +19,6 @@
       </div>
       <div class="tw-w-3/4  tw-h-screen tw-py-12 bg-grey-3">
         <div class="text-right tw-pr-8">
-          <q-btn size="sm"
-                 color="secondary" icon="fas fa-user-edit" rounded label="Editar perfil">
-          </q-btn>
         </div>
         <div class="tw-py-10 tw-w-full">
           <p class="tw-px-12 tw-text-2xl text-bold tw-flex tw-break-words tw-leading-none">
@@ -41,8 +38,6 @@
             class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">{{user.condicion}}</span></p>
           <p class="tw-pt-6"><span class="tw-text-xl text-bold  tw-break-words">Objetivo actual</span><span
             class="tw-text-xl tw-pl-10 tw-break-words text-purple-3">{{user.objective}}</span></p>
-          <p class="tw-pt-6"><span class="tw-text-xl text-bold  tw-break-words">Total de rutinas</span><span
-            class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">{{user.totalRutinas}}</span></p>
         </div>
       </div>
     </div>

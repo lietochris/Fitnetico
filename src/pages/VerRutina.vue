@@ -4,56 +4,7 @@
 
     <div class="flex tw-mb-4">
       <div class="tw-pt-12 tw-w-full week flex flex-center text-white" style="height:300px">
-        <p class="tw-text-3xl text-bold text-center">Rutina</p>
-      </div>
-    </div>
-
-    <div class="tw-grid tw-grid-cols-2 sm:tw-grid-cols-3 md:tw-grid-cols-4 lg:tw-grid-cols-5 xl:tw-grid-cols-5">
-      <div class=" tw-m-2 header">
-        <p
-          class="text-center tw-pt-4 text-bold text-white tw-text-base sm:tw-text-lg md:tw-text-xl lg:tw-text-2xl xl:tw-text-3xl">
-          Lunes</p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Biceps </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl">
-          Triceps </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Hombro </p>
-      </div>
-      <div class="tw-m-2 header">
-        <p
-          class="text-center tw-pt-4 text-bold text-white tw-text-base sm:tw-text-lg md:tw-text-xl lg:tw-text-2xl xl:tw-text-3xl">
-          Martes</p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Pecho </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl">
-          Espalda </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl">
-          Trapecio </p>
-      </div>
-      <div class="tw-m-2 header">
-        <p
-          class="text-center tw-pt-4 text-bold text-white tw-text-base sm:tw-text-lg md:tw-text-xl lg:tw-text-2xl xl:tw-text-3xl">
-          Miercoles</p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Pierna </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"></p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"></p>
-      </div>
-      <div class=" tw-m-2 header">
-        <p
-          class="text-center tw-pt-4 text-bold text-white tw-text-base sm:tw-text-lg md:tw-text-xl lg:tw-text-2xl xl:tw-text-3xl">
-          Martes</p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Biceps </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl">
-          Triceps </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Hombro </p>
-      </div>
-      <div class=" tw-m-2 header">
-        <p
-          class="text-center tw-pt-4 text-bold text-white tw-text-base sm:tw-text-lg md:tw-text-xl lg:tw-text-2xl xl:tw-text-3xl">
-          Martes</p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl"> Pecho </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl">
-          Espalda </p>
-        <p class="tw-pl-8 text-white tw-text-base sm:tw-text-md md:tw-text-lg lg:tw-text-xl xl:tw-text-2xl">
-          Trapecio </p>
+        <p class="tw-mb-12 tw-text-3xl text-bold text-center">Rutina</p>
       </div>
     </div>
 

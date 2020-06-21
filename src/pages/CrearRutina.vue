@@ -118,6 +118,32 @@
                     {label: 'Subir de peso', value: 'subir', color: 'green'}
                 ]
             }
+        },
+              methods: {
+            calculateIMC() {
+                this.user.imc = this.user.peso / (Math.pow(this.user.estatura, 2))
+                this.user.imc = this.user.imc.toFixed(2)
+            },
+            calculatePhyCondition() {
+                switch (true) {
+                    case (this.user.imc < 19):
+                        this.user.condicion = 'Bajo peso'
+                        break;
+                    case (this.user.imc >= 19 && this.user.imc < 25):
+                        this.user.condicion = 'Normal'
+                        break;
+                    case (this.user.imc >= 25 && this.user.imc < 30):
+                        this.user.condicion = 'Sobrepeso'
+                        break;
+                    case (this.user.imc > 30):
+                        this.user.condicion = 'Obesidad'
+                        break;
+                }
+            }
+        },
+        beforeMount() {
+            this.calculateIMC()
+            this.calculatePhyCondition()
         }
     }
 </script>
