@@ -123,7 +123,7 @@ const routes = [
             {
                 path: '',
                 component: () =>
-                    import ('pages/Index.vue')
+                    import ('pages/AdminInicio.vue')
             }
         ],
         meta: {
