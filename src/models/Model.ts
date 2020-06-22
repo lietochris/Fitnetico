@@ -30,12 +30,13 @@ export default abstract class Model {
    *
    * @param uid
    */
-  public async find(uid: string) {
+  public async find(uid: string): Promise<any> {
     try {
       const response = await db.collection(this.name).doc(uid).get();
       return response.data();
     } catch (e) {
-      console.error(e)
+      console.error(e);
+      return false;
     }
 
   }

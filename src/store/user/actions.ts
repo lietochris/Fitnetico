@@ -84,7 +84,7 @@ export async function register({commit}: any, payload: any): Promise<boolean> {
  */
 export async function update({commit}: any, payload: any) {
   try {
-    const response = await user.update(payload.id, payload);
+    const response = await user.update(payload.id, payload.content);
     return true;
   } catch (e) {
     console.error(e);

@@ -1,5 +1,6 @@
 export default function () {
   return {
-    routines: null
+    routines: null,
+    routine: null
   }
 }

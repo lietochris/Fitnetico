@@ -87,7 +87,7 @@ const routes = [
         }
     },
     {
-        path: '/rutinas/ver/:slug',
+        path: '/rutinas/ver/:id',
         component: () =>
             import ('pages/VerRutina.vue'),
         meta: {

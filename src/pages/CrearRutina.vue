@@ -8,7 +8,8 @@
             <q-img style="height:350px" class="tw-h-full"
                    src="https://intpass-eu-central-1-live02-public.s3.eu-central-1.amazonaws.com/de-live/venueHome_1024x576_IMG_0649_157164444373706_admin.jpg">
               <div class="absolute-full text-subtitle2 flex flex-center">
-                <div class="text-h3 text-white "> Crear rutina &nbsp;
+                <div class="text-h3 text-white ">
+                  Crear rutina &nbsp;
                 </div>
               </div>
             </q-img>
@@ -40,7 +41,7 @@
                         type="number"
                         rounded
                         standout="bg-blue-grey-1 text-grey-8"
-                        v-model="peso"
+                        v-model="form.weight"
                         label="Peso (kg)"
                         :rules="[
               value => !!value || 'Debes ingresar tu peso',
@@ -54,7 +55,7 @@
                         step="0.01"
                         rounded
                         standout="bg-blue-grey-1 text-grey-8"
-                        v-model="estatura"
+                        v-model="form.height"
                         label="Estatura (m)"
                         :rules="[value => !!value || 'Debes ingresar tu estatura',
               value => value < 3 || 'El numero que ingresaste no es valido',
@@ -77,7 +78,7 @@
                     :options="options"
                     label="Notifications"
                     type="radio"
-                    v-model="objetivo"
+                    v-model="form.objective"
                   />
                 </div>
               </q-step>
@@ -85,8 +86,8 @@
               <template v-slot:navigation>
                 <q-stepper-navigation>
                   <div class="text-center">
-                    <q-btn rounded color="primary" @click="$refs.stepper.next()"
-                           :label="step === 2 ? 'Crear rutina' : 'Continuar'"/>
+                    <q-btn v-if="step !== 2" rounded color="primary" @click="$refs.stepper.next()" label="Continuar"/>
+                    <q-btn v-if="step === 2" rounded color="primary" @click="createRoutine" label="Crear"/>
                     <q-btn rounded v-if="step > 1" @click="$refs.stepper.previous()" flat color="primary"
                            label="Regresar"/>
                   </div>
@@ -103,6 +104,7 @@
 
 <script>
     import FHeader from "../components/FHeader";
+    import Notify from "quasar/src/plugins/Notify";
 
     export default {
         name: 'CrearRutina',
@@ -110,16 +112,31 @@
         data() {
             return {
                 step: 1,
-                peso: null,
-                estatura: null,
-                objetivo: null,
+                form: {},
                 options: [
-                    {label: 'Bajar de peso', value: 'bajar'},
-                    {label: 'Subir de peso', value: 'subir', color: 'green'}
+                    {label: 'Bajar de peso', value: 'Bajar de peso'},
+                    {label: 'Subir de peso', value: 'Subir de peso', color: 'green'}
                 ]
             }
         },
-              methods: {
+        methods: {
+            async createRoutine() {
+                this.$q.loading.show({
+                    message: 'Creando rutina...'
+                });
+
+                try {
+                    await this.$store.dispatch('routine/store', this.form)
+                    Notify.create({
+                        message: 'Rutina creada correctamente',
+                        color: 'green',
+                        position: 'top-right'
+                    });
+                    await this.$router.push('/rutinas')
+                } finally {
+                    this.$q.loading.hide();
+                }
+            },
             calculateIMC() {
                 this.user.imc = this.user.peso / (Math.pow(this.user.estatura, 2))
                 this.user.imc = this.user.imc.toFixed(2)
@@ -140,10 +157,6 @@
                         break;
                 }
             }
-        },
-        beforeMount() {
-            this.calculateIMC()
-            this.calculatePhyCondition()
         }
     }
 </script>

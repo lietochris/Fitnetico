@@ -1,5 +1,5 @@
 import Model from "src/models/Model";
-import {storage} from "src/config/firebase";
+import {db, storage} from "src/config/firebase";
 
 export default class Exercise extends Model {
   name = "exercises";
@@ -9,5 +9,24 @@ export default class Exercise extends Model {
     await imageRef.put(image);
 
     return await imageRef.getDownloadURL();
+  }
+
+  public async allByMuscle(muscle: string): Promise<Array<object>> {
+    try {
+      let data: Array<object> = [];
+      const response = await db.collection(this.name)
+        .where('muscle', '==', muscle)
+        .get();
+      response.forEach(doc => {
+        data.push({
+          id: doc.id,
+          ...doc.data()
+        })
+      });
+      return data;
+    } catch (e) {
+      console.error(e);
+      return await Promise.reject()
+    }
   }
 }

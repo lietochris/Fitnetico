@@ -30,8 +30,8 @@
                   <div class="flex tw-mb-4 ">
                     <div class="tw-w-full tw-h-40 routine">
                       <p class="text-center tw-pt-8 text-white tw-text-xl text-bold "> Rutina {{i + 1}}</p>
-                      <p class="tw-pl-8 tw-pt-4 text-white tw-text-md tw-break-words"><span>objetivo: {{routine.difficult}} </span>
-                        <span class="tw-pr-8" style="float:right;"> Dificultad: {{routine.difficult}} </span></p>
+                      <p class="tw-pl-8 tw-pt-4 text-white tw-text-md tw-break-words"><span>objetivo: {{routine.objective}} </span>
+                        <!--                        <span class="tw-pr-8" style="float:right;"> Dificultad: {{routine.difficult}} </span></p>-->
                       <div class="tw-h-8 bg-dark"></div>
                     </div>
                   </div>

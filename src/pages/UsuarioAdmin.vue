@@ -105,11 +105,9 @@
         name: 'UsuarioAdmin',
         data() {
             return {
-                form: {},
                 user: {},
                 left: false,
                 modal: false,
-
             }
         },
         created() {
@@ -121,7 +119,7 @@
         methods: {
             ...mapActions('user', ['index']),
             changeRole() {
-                this.$store.dispatch('user/update', {id: this.user.id, role: this.user.role})
+                this.$store.dispatch('user/update', {id: this.user.id, content: {role: this.user.role}})
                     .then(() => {
                         this.index();
                         Notify.create({
