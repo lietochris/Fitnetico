@@ -22,13 +22,25 @@
         </div>
         <div class="tw-py-10 tw-w-full">
           <p class="tw-px-12 tw-text-2xl text-bold tw-flex tw-break-words tw-leading-none">
-            {{user.name}} {{user.paternalName}} {{user.maternalName}}
+            Mi perfil
           </p>
-          <p class="tw-px-12 tw-text-base tw-flex tw-break-words tw-leading-none">{{user.email}}</p>
           <div class="tw-w-1/4 tw-h-2 bg-purple-10"></div>
         </div>
         <div class="tw-pl-24">
-          <p><span class="tw-text-xl text-bold  tw-break-words">Peso </span><span
+          <p class="tw-px-12 tw-mb-10 tw-text-2xl tw-flex tw-break-words tw-leading-none">
+           <span class="text-bold text-secondary">Nombre: &nbsp;</span>   {{user.name}}
+          </p>
+          <p class="tw-px-12 tw-mb-10 tw-text-2xl  tw-flex tw-break-words tw-leading-none">
+            <span class="text-bold text-secondary">Apellido paterno:  &nbsp;</span> {{user.paternalName}}
+          </p>
+          <p class="tw-px-12 tw-mb-10 tw-text-2xl  tw-flex tw-break-words tw-leading-none">
+           <span class="text-bold text-secondary">Apellido Materno:  &nbsp;</span>  {{user.maternalName}}
+          </p>
+          <p class="tw-px-12 tw-mb-10 tw-text-2xl  tw-flex tw-break-words tw-leading-none">
+           <span class="text-bold text-secondary">Email:  &nbsp;</span>  {{user.email}}
+          </p>
+          <!-- <p class="tw-px-12 tw-text-base tw-flex tw-break-words tw-leading-none"> Email: {{user.email}}</p> -->
+          <!-- <p><span class="tw-text-xl text-bold  tw-break-words">Peso </span><span
             class="tw-text-xl tw-pl-32 tw-break-words text-purple-3"> {{user.weight}} kg </span></p>
           <p class="tw-pt-6"><span class="tw-text-xl text-bold  tw-break-words">Estatura </span><span
             class="tw-text-xl tw-pl-24 tw-break-words text-purple-3"> {{user.height}} m </span></p>
@@ -37,7 +49,7 @@
           <p class="tw-pt-6"><span class="tw-text-xl text-bold  tw-break-words">Condición física</span><span
             class="tw-text-xl tw-pl-8 tw-break-words text-purple-3">{{user.condicion}}</span></p>
           <p class="tw-pt-6"><span class="tw-text-xl text-bold  tw-break-words">Objetivo actual</span><span
-            class="tw-text-xl tw-pl-10 tw-break-words text-purple-3">{{user.objective}}</span></p>
+            class="tw-text-xl tw-pl-10 tw-break-words text-purple-3">{{user.objective}}</span></p> -->
         </div>
       </div>
     </div>
