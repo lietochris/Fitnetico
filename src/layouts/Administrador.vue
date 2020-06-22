@@ -1,77 +1,69 @@
 <template>
   <q-layout view="hHh LpR fFf">
 
-    <q-header elevated class="bg-dark text-white">
-      <q-toolbar>
-        <q-btn class="bg-grey-9" dense flat round icon="menu" @click="left = !left" />
-        <q-toolbar-title>
-          <!--<img class="tw-w-1/3 lg:tw-w-1/6" src="../../src/assets/logo.svg">-->
-          <img class="responsive"  width="120" height="30" src="../../src/assets/logo.svg">
-          <!-- <q-avatar> </q-avatar> -->
-        </q-toolbar-title>
-        <q-btn class="text-white" size="10px">Cerrar sesión</q-btn>
-      </q-toolbar>
-    </q-header>
+    <f-header/>
 
     <q-drawer show-if-above v-model="left" side="left" bordered>
       <!-- drawer content -->
-        <q-img class="absolute-top tw-flex tw-min-h-screen" src="https://s3.amazonaws.com/smartsystem/pictures/3426/original/RCH_2171_as_Smart_Object-1.jpg" style="height: 150px">
-            <div class="absolute-full text-subtitle2 text-center tw-py-32">
-                <div class="tw-pt-8 tw-pb-4">
-                    <img src="https://i.ibb.co/YRJrrHr/user-1.png" class="responsive" width="70" height="70">
-                </div>
-                <div class="text-weight-bold">Fernanda Musa R.</div>
-                <div>example@gmail.com</div>
-                <q-separator color="white" inset />
-                <q-list padding>
-                    <q-item to="/admin/perfil" clickable v-ripple>
+      <q-img class="absolute-top tw-flex tw-min-h-screen"
+             src="https://s3.amazonaws.com/smartsystem/pictures/3426/original/RCH_2171_as_Smart_Object-1.jpg"
+             style="height: 150px">
+        <div class="absolute-full text-subtitle2 text-center tw-py-32">
+          <div class="tw-pt-8 tw-pb-4">
+            <img src="https://i.ibb.co/YRJrrHr/user-1.png" class="responsive" width="70" height="70">
+          </div>
+          <div class="text-weight-bold">{{user.name}} {{user.paternalName}} {{user.maternalName}}</div>
+          <div>{{user.email}}</div>
+          <q-separator color="white" inset/>
+          <q-list padding>
+            <!--          <q-item to="/admin/perfil" clickable v-ripple>
                         <q-item-section avatar>
-                            <q-icon name="inbox" />
+                          <q-icon name="inbox"/>
                         </q-item-section>
 
                         <q-item-section>
-                            Perfil
+                          Perfil
                         </q-item-section>
-                    </q-item>
+                      </q-item>-->
 
-                    <q-item to="/admin/ejercicios" clickable v-ripple>
-                    <!--<q-item active clickable v-ripple> -->
-                        <q-item-section avatar>
-                            <q-icon name="star" />
-                        </q-item-section>
+            <q-item to="/admin/ejercicios" clickable v-ripple>
+              <!--<q-item active clickable v-ripple> -->
+              <q-item-section avatar>
+                <q-icon name="star"/>
+              </q-item-section>
 
-                        <q-item-section>
-                            Ejercicios
-                        </q-item-section>
-                    </q-item>
+              <q-item-section>
+                Ejercicios
+              </q-item-section>
+            </q-item>
 
-                    <q-item to="/admin/crear" clickable v-ripple>
-                        <q-item-section avatar>
-                            <q-icon name="send" />
-                        </q-item-section>
+            <q-item to="/admin/crear" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="send"/>
+              </q-item-section>
 
-                        <q-item-section>
-                            Nuevo ejercicio
-                        </q-item-section>
-                    </q-item>
+              <q-item-section>
+                Nuevo ejercicio
+              </q-item-section>
+            </q-item>
 
-                    <q-item to="/admin/usuario" clickable v-ripple>
-                        <q-item-section avatar>
-                            <q-icon name="drafts" />
-                        </q-item-section>
+            <q-item to="/admin/usuario" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="drafts"/>
+              </q-item-section>
 
-                        <q-item-section>
-                            Usuarios
-                        </q-item-section>
-                    </q-item>
-                </q-list>
-                <q-separator color="white" inset />
-            </div>
-        </q-img>
+              <q-item-section>
+                Usuarios
+              </q-item-section>
+            </q-item>
+          </q-list>
+          <q-separator color="white" inset/>
+        </div>
+      </q-img>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view/>
     </q-page-container>
 
     <q-footer elevated class="bg-dark text-white">
@@ -86,11 +78,19 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      left: false
+    import FHeader from "../components/FHeader";
+
+    export default {
+        components: {FHeader},
+        data() {
+            return {
+                left: false
+            }
+        },
+        computed: {
+            user() {
+                return this.$store.state.user.user
+            }
+        }
     }
-  }
-}
 </script>

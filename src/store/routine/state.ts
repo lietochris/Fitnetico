@@ -1,7 +1,6 @@
 export default function () {
   return {
-    user: null,
-    users: [],
-    error: '',
+    routines: null,
+    routine: null
   }
 }
