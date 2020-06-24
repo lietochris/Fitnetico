@@ -26,24 +26,20 @@
     <main>
       <section class="acerca-de">
         <div class="info-container">
-          <h1>Quienes Somos?</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie in risus eget iaculis.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed at
-            ultricies lacus. Sed ut ornare mi, ac blandit nibh. Nulla sollicitudin lorem consequat, porta est ut,
-            scelerisque risus. Morbi iaculis a sem quis iaculis. Sed facilisis turpis placerat, aliquam augue in,
-            aliquet lectus.</p>
-          <p>Aliquam erat volutpat. Aliquam pellentesque velit ut neque consequat, id accumsan est cursus. Ut ut leo at
-            dolor molestie porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            Curae; Integer auctor gravida quam et faucibus. Vivamus vel porttitor leo, ac ornare odio. Praesent finibus
-            mi urna, sed vehicula dolor bibendum vel.</p>
+          <h1 class="text-secondary tw-font-semibold">¡Mantente motivado!</h1>
+          <p class="tw-text-2xl">
+            ¿Has tomado una decisión de año nuevo para comenzar un nuevo programa de
+            entrenamiento? ¿Todavía estás esperando para comenzar? ¿Ya lo comenzó y ahora tiene problemas para
+            mantenerlo? Nos gustaría ayudarte durante este período creando una rutina totalmente personalizada.
+          </p>
           <div class="about-gallery">
             <img src="https://i.ibb.co/p14rkG6/01.jpg" alt="01" border="0"/>
             <img src="https://i.ibb.co/jhqSXh1/02.jpg" alt="02" border="0"/>
             <img src="https://i.ibb.co/0JBhTXK/03.jpg" alt="03" border="0"/>
           </div>
 
-          <div class="about-more">
-            <button>Leer mas</button>
+          <div class="text-center">
+            <q-btn color="primary" rounded class="tw-px-4 tw-py-2" to="/expertos" label="Leer mas" no-caps/>
           </div>
 
         </div>

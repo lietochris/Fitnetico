@@ -31,8 +31,7 @@ const routes = [
         component: () =>
             import ('pages/Expertos.vue'),
         meta: {
-            guest: true,
-            auth: true
+            guest: true
         }
     },
 

@@ -21,7 +21,7 @@
 
           <div class="tw-flex tw-flex-row tw-justify-center tw-flex-wrap">
 
-            <q-card v-for="exercise in routine.exercises.Pecho" class="tw-w-1/5 tw-mx-3">
+            <q-card v-for="exercise in routine.exercises.Pecho" :key="exercise.id" class="tw-w-1/5 tw-mx-3">
               <img class="tw-h-32" :src="exercise.image">
 
               <q-card-section>
@@ -45,7 +45,7 @@
 
           <div class="tw-flex tw-flex-row tw-justify-center tw-flex-wrap">
 
-            <q-card v-for="exercise in routine.exercises.Espalda" class="tw-w-1/5 tw-mx-3">
+            <q-card v-for="exercise in routine.exercises.Espalda" :key="exercise.id" class="tw-w-1/5 tw-mx-3">
               <img class="tw-h-32" :src="exercise.image">
 
               <q-card-section>
@@ -69,7 +69,7 @@
 
           <div class="tw-flex tw-flex-row tw-justify-center tw-flex-wrap">
 
-            <q-card v-for="exercise in routine.exercises.Hombro" class="tw-w-1/5 tw-mx-3">
+            <q-card v-for="exercise in routine.exercises.Hombro" :key="exercise.id" class="tw-w-1/5 tw-mx-3">
               <img class="tw-h-32" :src="exercise.image">
 
               <q-card-section>
@@ -93,7 +93,7 @@
 
           <div class="tw-flex tw-flex-row tw-justify-center tw-flex-wrap">
 
-            <q-card v-for="exercise in routine.exercises.Biceps" class="tw-w-1/5 tw-mx-3">
+            <q-card v-for="exercise in routine.exercises.Biceps" :key="exercise.id" class="tw-w-1/5 tw-mx-3">
               <img class="tw-h-32" :src="exercise.image">
 
               <q-card-section>
@@ -117,7 +117,7 @@
 
           <div class="tw-flex tw-flex-row tw-justify-center tw-flex-wrap">
 
-            <q-card v-for="exercise in routine.exercises.Triceps" class="tw-w-1/5 tw-mx-3">
+            <q-card v-for="exercise in routine.exercises.Triceps" :key="exercise.id" class="tw-w-1/5 tw-mx-3">
               <img class="tw-h-32" :src="exercise.image">
 
               <q-card-section>
@@ -141,7 +141,7 @@
 
           <div class="tw-flex tw-flex-row tw-justify-center tw-flex-wrap">
 
-            <q-card v-for="exercise in routine.exercises.Trapecio" class="tw-w-1/5 tw-mx-3">
+            <q-card v-for="exercise in routine.exercises.Trapecio" :key="exercise.id" class="tw-w-1/5 tw-mx-3">
               <img class="tw-h-32" :src="exercise.image">
 
               <q-card-section>
@@ -158,7 +158,8 @@
           <div class="tw-h-32"></div>
 
         </div>
-        <div v-else class="tw-min-h-screen tw-flex tw-justify-center tw-items-center text-secondary tw-font-semibold tw-text-5xl">
+        <div v-else
+             class="tw-min-h-screen tw-flex tw-justify-center tw-items-center text-secondary tw-font-semibold tw-text-5xl">
           No existe esa rutina
         </div>
       </q-page>
